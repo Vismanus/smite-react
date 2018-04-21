@@ -4,7 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import theme from './theme'
-import Button from './components/MUI/Button'
+import Hirez from './modules/Hirez'
 import logo from './logo.png'
 import reducers from './combinedReducers'
 import './App.css'
@@ -29,8 +29,7 @@ const App = () => (
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Button color="primary" />
-        <Button color="secondary" />
+        <Hirez />
       </div>
     </MuiThemeProvider>
   </Provider>

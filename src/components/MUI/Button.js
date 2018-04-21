@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const Button = props => (
   <MuiButton variant="raised" color={props.color}>
-    Button
+    {props.children}
   </MuiButton>
 )
 
@@ -13,6 +13,7 @@ Button.defaultProps = {
 }
 
 Button.propTypes = {
+  children: PropTypes.string.isRequired,
   color: PropTypes.string
 }
 

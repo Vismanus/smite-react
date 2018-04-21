@@ -4,9 +4,9 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 import theme from './theme'
-import Hirez from './modules/Hirez'
 import TopPanel from './components/MUI/TopPanel'
 import InfoBox from './components/MUI/InfoBox'
+import ControlPanel from './components/MUI/ControlPanel'
 import reducers from './combinedReducers'
 import './App.css'
 
@@ -24,7 +24,7 @@ const App = () => (
     <MuiThemeProvider theme={theme}>
       <TopPanel>Hi</TopPanel>
       <InfoBox />
-      <Hirez />
+      <ControlPanel />
     </MuiThemeProvider>
   </Provider>
 )

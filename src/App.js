@@ -12,7 +12,14 @@ import './App.css'
 const welcome = "Welcome to Sean's experimental Smite app using React!"
 
 const App = () => (
-  <Provider store={createStore(reducers)}>
+  <Provider
+    store={createStore(
+      reducers,
+      {},
+      window.__REDUX_DEVTOOLS_EXTENSION__ && // eslint-disable-line no-underscore-dangle
+        window.__REDUX_DEVTOOLS_EXTENSION__() // eslint-disable-line no-underscore-dangle
+    )}
+  >
     <MuiThemeProvider theme={theme}>
       <div className="App">
         <header className="App-header">

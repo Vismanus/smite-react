@@ -2,8 +2,9 @@ import React from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import theme from './theme'
-import Button from './components/MUI/Button'
 import logo from './logo.png'
+import Button from './components/MUI/Button'
+import HirezText from './components/hirezText'
 import './App.css'
 
 const welcome = 'Welcome to Sean\'s experimental Smite app using React!'
@@ -20,6 +21,7 @@ const App = () => (
       </p>
       <Button color="primary" />
       <Button color="secondary" />
+      <HirezText />
     </div>
   </MuiThemeProvider>
 )

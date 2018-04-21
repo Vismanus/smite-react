@@ -5,7 +5,8 @@ import { Provider } from 'react-redux'
 
 import theme from './theme'
 import Hirez from './modules/Hirez'
-import AppBar from './components/MUI/AppBar'
+import TopPanel from './components/MUI/TopPanel'
+import InfoBox from './components/MUI/InfoBox'
 import reducers from './combinedReducers'
 import './App.css'
 
@@ -21,7 +22,8 @@ const App = () => (
     /* eslint-enable */
   >
     <MuiThemeProvider theme={theme}>
-      <AppBar>Hi</AppBar>
+      <TopPanel>Hi</TopPanel>
+      <InfoBox />
       <Hirez />
     </MuiThemeProvider>
   </Provider>

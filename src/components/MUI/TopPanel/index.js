@@ -1,14 +1,14 @@
 import React from 'react'
-import MuiAppBar from 'material-ui/AppBar'
+import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 
 import logo from '../../../logo.png'
 
-const AppBar = () => (
+const TopPanel = () => (
   <div>
-    <MuiAppBar position="static">
+    <AppBar position="static">
       <Toolbar>
         <IconButton
           color="inherit"
@@ -18,8 +18,8 @@ const AppBar = () => (
         </IconButton>
         <img src={logo} className="App-logo" alt="logo" />
       </Toolbar>
-    </MuiAppBar>
+    </AppBar>
   </div>
 )
 
-export default AppBar
+export default TopPanel

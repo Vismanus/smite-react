@@ -1,9 +1,15 @@
 import * as actionTypes from './actionTypes'
 
-export function loadCredentials(devId, authKey) {
+export function setDevId(devId) {
   return {
-    type: actionTypes.LOAD_CREDENTIALS,
-    devId,
+    type: actionTypes.SET_DEVID,
+    devId
+  }
+}
+
+export function setAuthKey(authKey) {
+  return {
+    type: actionTypes.SET_AUTHKEY,
     authKey
   }
 }

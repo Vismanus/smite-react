@@ -7,10 +7,14 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOAD_CREDENTIALS:
+    case actionTypes.SET_DEVID:
       return {
         ...state,
-        devId: action.devId,
+        devId: action.devId
+      }
+    case actionTypes.SET_AUTHKEY:
+      return {
+        ...state,
         authKey: action.authKey
       }
     default:

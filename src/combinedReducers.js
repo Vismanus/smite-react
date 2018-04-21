@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import HirezReducer from './components/Hirez/reducer'
+import HirezReducer from './modules/Hirez/reducer'
 
 export default combineReducers({
   teams: HirezReducer

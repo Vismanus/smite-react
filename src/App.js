@@ -5,11 +5,9 @@ import { Provider } from 'react-redux'
 
 import theme from './theme'
 import Hirez from './modules/Hirez'
-import logo from './logo.png'
+import AppBar from './components/MUI/AppBar'
 import reducers from './combinedReducers'
 import './App.css'
-
-const welcome = "Welcome to Sean's experimental Smite app using React!"
 
 const App = () => (
   <Provider
@@ -23,16 +21,8 @@ const App = () => (
     /* eslint-enable */
   >
     <MuiThemeProvider theme={theme}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">{welcome}</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Hirez />
-      </div>
+      <AppBar>Hi</AppBar>
+      <Hirez />
     </MuiThemeProvider>
   </Provider>
 )

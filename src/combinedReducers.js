@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import HirezReducer from './modules/Hirez/reducer'
+import reducer from './components/reducer'
 
 export default combineReducers({
-  hirez: HirezReducer
+  apiConfig: reducer
 })

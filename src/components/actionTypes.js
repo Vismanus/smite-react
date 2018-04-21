@@ -1,0 +1,4 @@
+export const SAVE_DEVID_INPUT = 'SAVE_DEVID_INPUT'
+export const SAVE_AUTHKEY_INPUT = 'SAVE_AUTHKEY_INPUT'
+export const SET_DEVID = 'SET_DEVID'
+export const SET_AUTHKEY = 'SET_AUTHKEY'

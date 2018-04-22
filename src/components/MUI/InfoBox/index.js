@@ -1,8 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Card from 'material-ui/Card'
 import List, { ListItem, ListItemText } from 'material-ui/List'
 
-const InfoBox = () => (
+const InfoBox = props => (
   <div
     style={{
       width: '100%',
@@ -15,11 +17,11 @@ const InfoBox = () => (
       <List disablePadding>
         <ListItem divider>
           <ListItemText style={{ flex: 1 }}>devId</ListItemText>
-          <ListItemText style={{ flex: 4 }}>2575</ListItemText>
+          <ListItemText style={{ flex: 4 }}>{props.devId}</ListItemText>
         </ListItem>
         <ListItem divider>
           <ListItemText style={{ flex: 1 }}>authKey</ListItemText>
-          <ListItemText style={{ flex: 4 }}>F87240FCDE3E49B0B8D47EED2E117038</ListItemText>
+          <ListItemText style={{ flex: 4 }}>{props.authKey}</ListItemText>
         </ListItem>
         <ListItem>
           <ListItemText style={{ flex: 1 }}>sessionId</ListItemText>
@@ -30,4 +32,14 @@ const InfoBox = () => (
   </div>
 )
 
-export default InfoBox
+InfoBox.propTypes = {
+  devId: PropTypes.string.isRequired,
+  authKey: PropTypes.string.isRequired
+}
+
+const mapStateToProps = state => ({
+  devId: state.apiConfig.devId,
+  authKey: state.apiConfig.authKey
+})
+
+export default connect(mapStateToProps)(InfoBox)

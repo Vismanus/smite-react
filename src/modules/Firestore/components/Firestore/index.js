@@ -11,9 +11,9 @@ import { loginRequest } from '../../actions'
 
 const Firestore = props => (
   <TitledList title="Firestore">
-    <ListItem>
-      <ListItemText>Logged in</ListItemText>
-      <ListItemText>{props.loggedIn.toString()}</ListItemText>
+    <ListItem divider>
+      <ListItemText id="listKey">Logged in</ListItemText>
+      <ListItemText id="listValue">{props.loggedIn.toString()}</ListItemText>
     </ListItem>
     <ListItem>
       <RaisedButton color="primary" fullWidth onClick={props.loginRequest}>

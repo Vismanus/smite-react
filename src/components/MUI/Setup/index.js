@@ -16,7 +16,7 @@ import {
 } from '../../actions'
 import Button from '../Button'
 
-const ControlPanel = props => (
+const Setup = props => (
   <TitledList title="Setup">
     <ListItem divider>
       <TextField
@@ -56,7 +56,7 @@ const ControlPanel = props => (
   </TitledList>
 )
 
-ControlPanel.propTypes = {
+Setup.propTypes = {
   loginRequest: PropTypes.func.isRequired,
   authKeyInput: PropTypes.string.isRequired,
   devIdInput: PropTypes.string.isRequired,
@@ -79,4 +79,4 @@ const mapDispatchToProps = dispatch => ({
   setAuthKey: authKey => dispatch(setAuthKey(authKey))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ControlPanel)
+export default connect(mapStateToProps, mapDispatchToProps)(Setup)

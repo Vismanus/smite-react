@@ -6,7 +6,7 @@ import { ListItem, ListItemText } from 'material-ui/List'
 
 import TitledList from '../TitledList'
 
-const InfoBox = props => (
+const Credentials = props => (
   <TitledList title="Credentials">
     <ListItem divider>
       <ListItemText id="listKey">devId</ListItemText>
@@ -23,7 +23,7 @@ const InfoBox = props => (
   </TitledList>
 )
 
-InfoBox.propTypes = {
+Credentials.propTypes = {
   devId: PropTypes.string.isRequired,
   authKey: PropTypes.string.isRequired
 }
@@ -33,4 +33,4 @@ const mapStateToProps = state => ({
   authKey: state.apiConfig.authKey
 })
 
-export default connect(mapStateToProps)(InfoBox)
+export default connect(mapStateToProps)(Credentials)

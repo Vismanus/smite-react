@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 
 import theme from './theme'
 import TopPanel from './components/MUI/TopPanel'
-import InfoBox from './components/MUI/InfoBox'
+import Credentials from './components/MUI/Credentials'
 import Setup from './components/MUI/Setup'
 import reducers from './combinedReducers'
 import sagas from './components/sagas'
@@ -28,7 +28,7 @@ const App = () => (
       <TopPanel>Hi</TopPanel>
       <div id="hirez-api">
         <Setup />
-        <InfoBox />
+        <Credentials />
       </div>
     </MuiThemeProvider>
   </Provider>

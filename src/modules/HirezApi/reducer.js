@@ -4,22 +4,11 @@ const initialState = {
   devIdInput: '',
   authKeyInput: '',
   devId: '',
-  authKey: '',
-  loggedIn: 'not yet attempted'
+  authKey: ''
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.LOGIN_SUCCESS:
-      return {
-        ...state,
-        loggedIn: true
-      }
-    case actionTypes.LOGIN_FAILURE:
-      return {
-        ...state,
-        loggedIn: false
-      }
     case actionTypes.SAVE_DEVID_INPUT:
       return {
         ...state,

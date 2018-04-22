@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 
 import { ListItem, ListItemText } from 'material-ui/List'
 
+import TitledList from '../../../../components/MUI/TitledList'
+import RaisedButton from '../../../../components/MUI/RaisedButton'
+
 import { loginRequest } from '../../actions'
-import TitledList from '../TitledList'
-import Button from '../Button'
 
 const Firestore = props => (
   <TitledList title="Firestore">
@@ -15,9 +16,9 @@ const Firestore = props => (
       <ListItemText>{props.loggedIn.toString()}</ListItemText>
     </ListItem>
     <ListItem>
-      <Button color="primary" fullWidth onClick={props.loginRequest}>
+      <RaisedButton color="primary" fullWidth onClick={props.loginRequest}>
         log in
-      </Button>
+      </RaisedButton>
     </ListItem>
   </TitledList>
 )
@@ -28,7 +29,7 @@ Firestore.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.apiConfig.loggedIn
+  loggedIn: state.firestore.loggedIn
 })
 
 const mapDispatchToProps = dispatch => ({

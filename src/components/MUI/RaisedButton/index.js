@@ -1,27 +1,27 @@
 import React from 'react'
-import MuiButton from 'material-ui/Button'
 import PropTypes from 'prop-types'
+import Button from 'material-ui/Button'
 
-const Button = (props) => {
-  const { color, ...newProps } = props
+const RaisedButton = (props) => {
+  const { color, ...other } = props
   return (
-    <MuiButton
+    <Button
       variant="raised"
       color={props.color}
-      {...newProps}
+      {...other}
     >
       {props.children}
-    </MuiButton>
+    </Button>
   )
 }
 
-Button.defaultProps = {
+RaisedButton.defaultProps = {
   color: 'primary'
 }
 
-Button.propTypes = {
+RaisedButton.propTypes = {
   children: PropTypes.string.isRequired,
   color: PropTypes.string
 }
 
-export default Button
+export default RaisedButton

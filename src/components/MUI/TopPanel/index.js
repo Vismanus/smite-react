@@ -1,10 +1,11 @@
 import React from 'react'
+
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import IconButton from 'material-ui/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 
-import logo from '../../../logo.png'
+import smiteLogo from '../../../images/smiteLogo.png'
 
 const TopPanel = () => (
   <div>
@@ -16,7 +17,7 @@ const TopPanel = () => (
         >
           <MenuIcon />
         </IconButton>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={smiteLogo} className="App-logo" alt="smiteLogo" />
       </Toolbar>
     </AppBar>
   </div>

@@ -6,11 +6,11 @@ import { Provider } from 'react-redux'
 
 import theme from './theme'
 import TopPanel from './components/MUI/TopPanel'
-import Credentials from './components/MUI/Credentials'
-import Setup from './components/MUI/Setup'
-import Firestore from './components/MUI/Firestore'
+import Credentials from './modules/HirezApi/components/Credentials'
+import Setup from './modules/HirezApi/components/Setup'
+import Firestore from './modules/Firestore/components/Firestore'
 import reducers from './combinedReducers'
-import sagas from './components/sagas'
+import sagas from './modules/Firestore/sagas'
 import './App.css'
 
 const sagaMiddleware = createSagaMiddleware()

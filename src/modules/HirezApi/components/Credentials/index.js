@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import { ListItem, ListItemText } from 'material-ui/List'
 
-import TitledList from '../TitledList'
+import TitledList from '../../../../components/MUI/TitledList'
 
 const Credentials = props => (
   <TitledList title="Credentials">
@@ -29,8 +29,8 @@ Credentials.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  devId: state.apiConfig.devId,
-  authKey: state.apiConfig.authKey
+  devId: state.hirezApi.devId,
+  authKey: state.hirezApi.authKey
 })
 
 export default connect(mapStateToProps)(Credentials)

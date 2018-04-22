@@ -39,7 +39,7 @@ const ControlPanel = props => (
             set
           </Button>
         </ListItem>
-        <ListItem>
+        <ListItem divider>
           <TextField
             label="authKey"
             margin="none"
@@ -52,6 +52,11 @@ const ControlPanel = props => (
             onClick={() => props.setAuthKey(props.authKeyInput)}
           >
             set
+          </Button>
+        </ListItem>
+        <ListItem>
+          <Button color="primary" fullWidth>
+            create new session
           </Button>
         </ListItem>
       </List>

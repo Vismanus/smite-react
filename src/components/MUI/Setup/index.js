@@ -8,7 +8,6 @@ import TextField from 'material-ui/TextField'
 import TitledList from '../TitledList'
 
 import {
-  loginRequest,
   saveDevIdInput,
   saveAuthKeyInput,
   setDevId,
@@ -49,7 +48,7 @@ const Setup = props => (
       </Button>
     </ListItem>
     <ListItem>
-      <Button color="primary" fullWidth onClick={props.loginRequest}>
+      <Button color="primary" fullWidth>
         create new session
       </Button>
     </ListItem>
@@ -57,7 +56,6 @@ const Setup = props => (
 )
 
 Setup.propTypes = {
-  loginRequest: PropTypes.func.isRequired,
   authKeyInput: PropTypes.string.isRequired,
   devIdInput: PropTypes.string.isRequired,
   saveDevIdInput: PropTypes.func.isRequired,
@@ -72,7 +70,6 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  loginRequest: () => dispatch(loginRequest()),
   saveDevIdInput: devIdInput => dispatch(saveDevIdInput(devIdInput)),
   saveAuthKeyInput: authKeyInput => dispatch(saveAuthKeyInput(authKeyInput)),
   setDevId: devId => dispatch(setDevId(devId)),

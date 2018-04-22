@@ -1,33 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import AppBar from 'material-ui/AppBar'
-import Card from 'material-ui/Card'
-import List, { ListItem, ListItemText } from 'material-ui/List'
-import Toolbar from 'material-ui/Toolbar'
+
+import { ListItem, ListItemText } from 'material-ui/List'
+
+import TitledList from '../TitledList'
 
 const InfoBox = props => (
-  <div className="Card">
-    <Card>
-      <AppBar position="static">
-        <Toolbar>Hirez API Credentials</Toolbar>
-      </AppBar>
-      <List disablePadding>
-        <ListItem divider>
-          <ListItemText id="listKey">devId</ListItemText>
-          <ListItemText id="listValue">{props.devId}</ListItemText>
-        </ListItem>
-        <ListItem divider>
-          <ListItemText id="listKey">authKey</ListItemText>
-          <ListItemText id="listValue">{props.authKey}</ListItemText>
-        </ListItem>
-        <ListItem>
-          <ListItemText id="listKey">sessionId</ListItemText>
-          <ListItemText id="listValue">some MD5 output</ListItemText>
-        </ListItem>
-      </List>
-    </Card>
-  </div>
+  <TitledList title="Credentials">
+    <ListItem divider>
+      <ListItemText id="listKey">devId</ListItemText>
+      <ListItemText id="listValue">{props.devId}</ListItemText>
+    </ListItem>
+    <ListItem divider>
+      <ListItemText id="listKey">authKey</ListItemText>
+      <ListItemText id="listValue">{props.authKey}</ListItemText>
+    </ListItem>
+    <ListItem>
+      <ListItemText id="listKey">sessionId</ListItemText>
+      <ListItemText id="listValue">some MD5 output</ListItemText>
+    </ListItem>
+  </TitledList>
 )
 
 InfoBox.propTypes = {

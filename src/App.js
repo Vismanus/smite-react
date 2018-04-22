@@ -28,11 +28,11 @@ const App = () => (
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <TopPanel>Hi</TopPanel>
-      <div id="hirez-api">
+      <div id="list-container">
         <Setup />
         <Credentials />
       </div>
-      <div>
+      <div id="list-container">
         <Firestore />
       </div>
     </MuiThemeProvider>

@@ -19,7 +19,6 @@ const reduxSagaFirebase = new ReduxSagaFirebase(myFirebaseApp)
 const authProvider = new firebase.auth.GoogleAuthProvider()
 
 function* loginSaga() {
-  console.log('entered loginSaga')
   try {
     const data = yield call(
       reduxSagaFirebase.auth.signInWithPopup,

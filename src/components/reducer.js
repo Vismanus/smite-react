@@ -5,7 +5,7 @@ const initialState = {
   authKeyInput: '',
   devId: '',
   authKey: '',
-  loggedIn: null
+  loggedIn: 'not yet attempted'
 }
 
 export default (state = initialState, action) => {

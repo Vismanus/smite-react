@@ -1,3 +1,27 @@
 .App-logo {
   height: 40px;
 }
+
+#Set-button {
+  margin-left: 24px;
+}
+
+#listKey {
+  flex: 1;
+}
+
+#listValue {
+  flex: 4;
+}
+
+#hirez-api {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  margin-top: 24px;
+}
+
+.Card {
+  width: 100%;
+  max-width: 500px;
+}

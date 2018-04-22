@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import AppBar from 'material-ui/AppBar'
 import Card from 'material-ui/Card'
 import List, { ListItem } from 'material-ui/List'
 import TextField from 'material-ui/TextField'
+import Toolbar from 'material-ui/Toolbar'
 
 import {
   loginRequest,
@@ -15,15 +17,11 @@ import {
 import Button from '../Button'
 
 const ControlPanel = props => (
-  <div
-    style={{
-      width: '100%',
-      maxWidth: '500px',
-      padding: 24,
-      flexGrow: 1
-    }}
-  >
+  <div className="Card">
     <Card>
+      <AppBar position="static">
+        <Toolbar>Hirez API Setup</Toolbar>
+      </AppBar>
       <List disablePadding>
         <ListItem divider>
           <TextField
@@ -34,8 +32,8 @@ const ControlPanel = props => (
           />
           <Button
             color="primary"
-            style={{ marginLeft: 24 }}
             onClick={() => props.setDevId(props.devIdInput)}
+            id="Set-button"
           >
             set
           </Button>
@@ -49,8 +47,8 @@ const ControlPanel = props => (
           />
           <Button
             color="primary"
-            style={{ marginLeft: 24 }}
             onClick={() => props.setAuthKey(props.authKeyInput)}
+            id="Set-button"
           >
             set
           </Button>

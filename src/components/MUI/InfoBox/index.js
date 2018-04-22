@@ -1,31 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import AppBar from 'material-ui/AppBar'
 import Card from 'material-ui/Card'
 import List, { ListItem, ListItemText } from 'material-ui/List'
+import Toolbar from 'material-ui/Toolbar'
 
 const InfoBox = props => (
-  <div
-    style={{
-      width: '100%',
-      maxWidth: '500px',
-      padding: 24,
-      flexGrow: 1
-    }}
-  >
+  <div className="Card">
     <Card>
+      <AppBar position="static">
+        <Toolbar>Hirez API Credentials</Toolbar>
+      </AppBar>
       <List disablePadding>
         <ListItem divider>
-          <ListItemText style={{ flex: 1 }}>devId</ListItemText>
-          <ListItemText style={{ flex: 4 }}>{props.devId}</ListItemText>
+          <ListItemText id="listKey">devId</ListItemText>
+          <ListItemText id="listValue">{props.devId}</ListItemText>
         </ListItem>
         <ListItem divider>
-          <ListItemText style={{ flex: 1 }}>authKey</ListItemText>
-          <ListItemText style={{ flex: 4 }}>{props.authKey}</ListItemText>
+          <ListItemText id="listKey">authKey</ListItemText>
+          <ListItemText id="listValue">{props.authKey}</ListItemText>
         </ListItem>
         <ListItem>
-          <ListItemText style={{ flex: 1 }}>sessionId</ListItemText>
-          <ListItemText style={{ flex: 4 }}>some MD5 output</ListItemText>
+          <ListItemText id="listKey">sessionId</ListItemText>
+          <ListItemText id="listValue">some MD5 output</ListItemText>
         </ListItem>
       </List>
     </Card>

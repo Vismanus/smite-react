@@ -26,8 +26,10 @@ const App = () => (
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <TopPanel>Hi</TopPanel>
-      <InfoBox />
-      <ControlPanel />
+      <div id="hirez-api">
+        <ControlPanel />
+        <InfoBox />
+      </div>
     </MuiThemeProvider>
   </Provider>
 )

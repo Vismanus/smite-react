@@ -16,21 +16,39 @@ const Credentials = props => (
       <ListItemText id="listKey">authKey</ListItemText>
       <ListItemText id="listValue">{props.authKey}</ListItemText>
     </ListItem>
+    <ListItem divider>
+      <ListItemText id="listKey">method</ListItemText>
+      <ListItemText id="listValue">{props.method}</ListItemText>
+    </ListItem>
+    <ListItem divider>
+      <ListItemText id="listKey">signature</ListItemText>
+      <ListItemText id="listValue">{props.signature}</ListItemText>
+    </ListItem>
+    <ListItem divider>
+      <ListItemText id="listKey">timestamp</ListItemText>
+      <ListItemText id="listValue">{props.timestamp}</ListItemText>
+    </ListItem>
     <ListItem>
       <ListItemText id="listKey">sessionId</ListItemText>
-      <ListItemText id="listValue">some MD5 output</ListItemText>
+      <ListItemText id="listValue">tbc</ListItemText>
     </ListItem>
   </TitledList>
 )
 
 Credentials.propTypes = {
   devId: PropTypes.string.isRequired,
-  authKey: PropTypes.string.isRequired
+  authKey: PropTypes.string.isRequired,
+  method: PropTypes.string.isRequired,
+  signature: PropTypes.string.isRequired,
+  timestamp: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
   devId: state.hirezApi.devId,
-  authKey: state.hirezApi.authKey
+  authKey: state.hirezApi.authKey,
+  method: state.hirezApi.method,
+  signature: state.hirezApi.signature,
+  timestamp: state.hirezApi.timestamp
 })
 
 export default connect(mapStateToProps)(Credentials)

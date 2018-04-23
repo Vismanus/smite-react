@@ -2,6 +2,14 @@
   height: 40px;
 }
 
+#signature {
+  margin-right: 12px;
+}
+
+#session {
+  margin-left: 12px;
+}
+
 #Set-button {
   margin-left: 24px;
 }

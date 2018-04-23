@@ -1,14 +1,36 @@
+import md5 from 'md5'
 import * as actionTypes from './actionTypes'
 
 const initialState = {
   devIdInput: '',
   authKeyInput: '',
+  methodInput: '',
   devId: '',
-  authKey: ''
+  authKey: '',
+  method: '',
+  signature: '',
+  timestamp: '',
+  sessionId: ''
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.CREATE_SIGNATURE:
+      return {
+        ...state,
+        signature: md5(`${state.devId}${state.method}${state.authKey}${action.timestamp}`),
+        timestamp: action.timestamp
+      }
+    case actionTypes.SAVE_METHOD_INPUT:
+      return {
+        ...state,
+        methodInput: action.methodInput
+      }
+    case actionTypes.SET_METHOD:
+      return {
+        ...state,
+        method: action.method
+      }
     case actionTypes.SAVE_DEVID_INPUT:
       return {
         ...state,

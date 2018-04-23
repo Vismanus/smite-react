@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import Moment from 'moment'
 
 import { ListItem } from 'material-ui/List'
 import TextField from 'material-ui/TextField'
@@ -9,10 +10,13 @@ import RaisedButton from '../../../../components/MUI/RaisedButton'
 import TitledList from '../../../../components/MUI/TitledList'
 
 import {
+  createSignature,
   saveDevIdInput,
   saveAuthKeyInput,
+  saveMethodInput,
   setDevId,
-  setAuthKey
+  setAuthKey,
+  setMethod
 } from '../../actions'
 
 const Setup = props => (
@@ -47,31 +51,64 @@ const Setup = props => (
         set
       </RaisedButton>
     </ListItem>
+    <ListItem divider>
+      <TextField
+        label="method"
+        margin="none"
+        fullWidth
+        onBlur={event => props.saveMethodInput(event.target.value)}
+      />
+      <RaisedButton
+        color="primary"
+        onClick={() => props.setMethod(props.methodInput)}
+        id="Set-button"
+      >
+        set
+      </RaisedButton>
+    </ListItem>
     <ListItem>
-      <RaisedButton color="primary" fullWidth>
-        create new session
+      <RaisedButton
+        id="signature"
+        color="primary"
+        fullWidth
+        onClick={() =>
+          props.createSignature(new Moment().utc().format('YYYYMMDDHHmmss'))
+        }
+      >
+        signature
+      </RaisedButton>
+      <RaisedButton id="session" color="primary" fullWidth>
+        session
       </RaisedButton>
     </ListItem>
   </TitledList>
 )
 
 Setup.propTypes = {
+  createSignature: PropTypes.func.isRequired,
   authKeyInput: PropTypes.string.isRequired,
   devIdInput: PropTypes.string.isRequired,
+  methodInput: PropTypes.string.isRequired,
   saveDevIdInput: PropTypes.func.isRequired,
   saveAuthKeyInput: PropTypes.func.isRequired,
+  saveMethodInput: PropTypes.func.isRequired,
   setDevId: PropTypes.func.isRequired,
-  setAuthKey: PropTypes.func.isRequired
+  setAuthKey: PropTypes.func.isRequired,
+  setMethod: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
   devIdInput: state.hirezApi.devIdInput,
-  authKeyInput: state.hirezApi.authKeyInput
+  authKeyInput: state.hirezApi.authKeyInput,
+  methodInput: state.hirezApi.methodInput
 })
 
 const mapDispatchToProps = dispatch => ({
+  createSignature: timestamp => dispatch(createSignature(timestamp)),
+  saveMethodInput: methodInput => dispatch(saveMethodInput(methodInput)),
   saveDevIdInput: devIdInput => dispatch(saveDevIdInput(devIdInput)),
   saveAuthKeyInput: authKeyInput => dispatch(saveAuthKeyInput(authKeyInput)),
+  setMethod: method => dispatch(setMethod(method)),
   setDevId: devId => dispatch(setDevId(devId)),
   setAuthKey: authKey => dispatch(setAuthKey(authKey))
 })

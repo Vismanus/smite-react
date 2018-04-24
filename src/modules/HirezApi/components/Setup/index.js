@@ -16,76 +16,95 @@ import {
   saveMethodInput,
   setDevId,
   setAuthKey,
-  setMethod
+  setMethod,
+  saveSession
 } from '../../actions'
 
-const Setup = props => (
-  <TitledList title="Setup">
-    <ListItem divider>
-      <TextField
-        label="devId"
-        margin="none"
-        fullWidth
-        onBlur={event => props.saveDevIdInput(event.target.value)}
-      />
-      <RaisedButton
-        color="primary"
-        onClick={() => props.setDevId(props.devIdInput)}
-        id="Set-button"
-      >
-        set
-      </RaisedButton>
-    </ListItem>
-    <ListItem divider>
-      <TextField
-        label="authKey"
-        margin="none"
-        fullWidth
-        onBlur={event => props.saveAuthKeyInput(event.target.value)}
-      />
-      <RaisedButton
-        color="primary"
-        onClick={() => props.setAuthKey(props.authKeyInput)}
-        id="Set-button"
-      >
-        set
-      </RaisedButton>
-    </ListItem>
-    <ListItem divider>
-      <TextField
-        label="method"
-        margin="none"
-        fullWidth
-        onBlur={event => props.saveMethodInput(event.target.value)}
-      />
-      <RaisedButton
-        color="primary"
-        onClick={() => props.setMethod(props.methodInput)}
-        id="Set-button"
-      >
-        set
-      </RaisedButton>
-    </ListItem>
-    <ListItem>
-      <RaisedButton
-        id="signature"
-        color="primary"
-        fullWidth
-        onClick={() =>
-          props.createSignature(new Moment().utc().format('YYYYMMDDHHmmss'))
-        }
-      >
-        signature
-      </RaisedButton>
-      <RaisedButton id="session" color="primary" fullWidth>
-        session
-      </RaisedButton>
-    </ListItem>
-  </TitledList>
-)
+const Setup = (props) => {
+  const fetchSession = () => {
+    fetch(`http://api.smitegame.com/smiteapi.svc/${props.method}json/${
+      props.devId
+    }/${props.signature}/${props.timestamp}`)
+      .then(response => response.json())
+      .then(json => props.saveSession(json))
+      .catch((ex) => {
+        console.log('parsing failed', ex)
+      })
+  }
+  return (
+    <TitledList title="Setup">
+      <ListItem divider>
+        <TextField
+          label="devId"
+          margin="none"
+          fullWidth
+          onBlur={event => props.saveDevIdInput(event.target.value)}
+        />
+        <RaisedButton
+          color="primary"
+          onClick={() => props.setDevId(props.devIdInput)}
+          id="Set-button"
+        >
+          set
+        </RaisedButton>
+      </ListItem>
+      <ListItem divider>
+        <TextField
+          label="authKey"
+          margin="none"
+          fullWidth
+          onBlur={event => props.saveAuthKeyInput(event.target.value)}
+        />
+        <RaisedButton
+          color="primary"
+          onClick={() => props.setAuthKey(props.authKeyInput)}
+          id="Set-button"
+        >
+          set
+        </RaisedButton>
+      </ListItem>
+      <ListItem divider>
+        <TextField
+          label="method"
+          margin="none"
+          fullWidth
+          onBlur={event => props.saveMethodInput(event.target.value)}
+        />
+        <RaisedButton
+          color="primary"
+          onClick={() => props.setMethod(props.methodInput)}
+          id="Set-button"
+        >
+          set
+        </RaisedButton>
+      </ListItem>
+      <ListItem>
+        <RaisedButton
+          id="signature"
+          color="primary"
+          fullWidth
+          onClick={() =>
+            props.createSignature(new Moment().utc().format('YYYYMMDDHHmmss'))
+          }
+        >
+          signature
+        </RaisedButton>
+        <RaisedButton
+          id="session"
+          color="primary"
+          fullWidth
+          onClick={() => fetchSession()}
+        >
+          session
+        </RaisedButton>
+      </ListItem>
+    </TitledList>
+  )
+}
 
 Setup.propTypes = {
   createSignature: PropTypes.func.isRequired,
+  saveSession: PropTypes.func.isRequired,
   authKeyInput: PropTypes.string.isRequired,
   devIdInput: PropTypes.string.isRequired,
   methodInput: PropTypes.string.isRequired,
@@ -94,17 +113,26 @@ Setup.propTypes = {
   saveMethodInput: PropTypes.func.isRequired,
   setDevId: PropTypes.func.isRequired,
   setAuthKey: PropTypes.func.isRequired,
-  setMethod: PropTypes.func.isRequired
+  setMethod: PropTypes.func.isRequired,
+  method: PropTypes.string.isRequired,
+  devId: PropTypes.string.isRequired,
+  signature: PropTypes.string.isRequired,
+  timestamp: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
   devIdInput: state.hirezApi.devIdInput,
   authKeyInput: state.hirezApi.authKeyInput,
-  methodInput: state.hirezApi.methodInput
+  methodInput: state.hirezApi.methodInput,
+  method: state.hirezApi.method,
+  devId: state.hirezApi.devId,
+  signature: state.hirezApi.signature,
+  timestamp: state.hirezApi.timestamp
 })
 
 const mapDispatchToProps = dispatch => ({
   createSignature: timestamp => dispatch(createSignature(timestamp)),
+  saveSession: json => dispatch(saveSession(json)),
   saveMethodInput: methodInput => dispatch(saveMethodInput(methodInput)),
   saveDevIdInput: devIdInput => dispatch(saveDevIdInput(devIdInput)),
   saveAuthKeyInput: authKeyInput => dispatch(saveAuthKeyInput(authKeyInput)),

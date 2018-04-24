@@ -7,6 +7,13 @@ export function createSignature(timestamp) {
   }
 }
 
+export function saveSession(session) {
+  return {
+    type: actionTypes.SAVE_SESSION,
+    session
+  }
+}
+
 export function setMethod(method) {
   return {
     type: actionTypes.SET_METHOD,

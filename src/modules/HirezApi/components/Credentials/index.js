@@ -30,7 +30,7 @@ const Credentials = props => (
     </ListItem>
     <ListItem>
       <ListItemText id="listKey">sessionId</ListItemText>
-      <ListItemText id="listValue">tbc</ListItemText>
+      <ListItemText id="listValue">{props.sessionId}</ListItemText>
     </ListItem>
   </TitledList>
 )
@@ -40,7 +40,8 @@ Credentials.propTypes = {
   authKey: PropTypes.string.isRequired,
   method: PropTypes.string.isRequired,
   signature: PropTypes.string.isRequired,
-  timestamp: PropTypes.string.isRequired
+  timestamp: PropTypes.string.isRequired,
+  sessionId: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -48,7 +49,8 @@ const mapStateToProps = state => ({
   authKey: state.hirezApi.authKey,
   method: state.hirezApi.method,
   signature: state.hirezApi.signature,
-  timestamp: state.hirezApi.timestamp
+  timestamp: state.hirezApi.timestamp,
+  sessionId: state.hirezApi.session.session_id
 })
 
 export default connect(mapStateToProps)(Credentials)

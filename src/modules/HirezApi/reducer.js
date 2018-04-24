@@ -10,7 +10,9 @@ const initialState = {
   method: '',
   signature: '',
   timestamp: '',
-  sessionId: ''
+  session: {
+    session_id: 'no session created'
+  }
 }
 
 export default (state = initialState, action) => {
@@ -20,6 +22,11 @@ export default (state = initialState, action) => {
         ...state,
         signature: md5(`${state.devId}${state.method}${state.authKey}${action.timestamp}`),
         timestamp: action.timestamp
+      }
+    case actionTypes.SAVE_SESSION:
+      return {
+        ...state,
+        session: action.session
       }
     case actionTypes.SAVE_METHOD_INPUT:
       return {

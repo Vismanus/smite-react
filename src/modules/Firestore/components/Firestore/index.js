@@ -14,9 +14,7 @@ const Firestore = props => (
     <ListItem divider>
       <ListItemText id="listKey">Logged in</ListItemText>
       <ListItemText id="listValue">{props.loggedIn.toString()}</ListItemText>
-    </ListItem>
-    <ListItem>
-      <RaisedButton color="primary" fullWidth onClick={props.loginRequest}>
+      <RaisedButton color="primary" onClick={props.loginRequest}>
         log in
       </RaisedButton>
     </ListItem>

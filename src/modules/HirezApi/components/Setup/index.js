@@ -41,7 +41,6 @@ const Setup = (props) => {
           onBlur={event => props.saveDevIdInput(event.target.value)}
         />
         <RaisedButton
-          color="primary"
           onClick={() => props.setDevId(props.devIdInput)}
           id="Set-button"
         >
@@ -56,7 +55,6 @@ const Setup = (props) => {
           onBlur={event => props.saveAuthKeyInput(event.target.value)}
         />
         <RaisedButton
-          color="primary"
           onClick={() => props.setAuthKey(props.authKeyInput)}
           id="Set-button"
         >
@@ -71,7 +69,6 @@ const Setup = (props) => {
           onBlur={event => props.saveMethodInput(event.target.value)}
         />
         <RaisedButton
-          color="primary"
           onClick={() => props.setMethod(props.methodInput)}
           id="Set-button"
         >

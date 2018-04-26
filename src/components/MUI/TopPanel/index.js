@@ -1,26 +1,25 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
-import IconButton from 'material-ui/IconButton'
-import MenuIcon from '@material-ui/icons/Menu'
 
-import smiteLogo from '../../../images/smiteLogo.png'
-
-const TopPanel = () => (
+const TopPanel = props => (
   <div>
     <AppBar position="static">
       <Toolbar>
-        <IconButton
-          color="inherit"
-          aria-label="Menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <img src={smiteLogo} className="App-logo" alt="smiteLogo" />
+        {props.children}
       </Toolbar>
     </AppBar>
   </div>
 )
+
+TopPanel.defaultProps = {
+  children: 'smite-react'
+}
+
+TopPanel.propTypes = {
+  children: PropTypes.string
+}
 
 export default TopPanel

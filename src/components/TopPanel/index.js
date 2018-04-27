@@ -3,15 +3,22 @@ import PropTypes from 'prop-types'
 
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
+import Typography from 'material-ui/Typography'
+
+const styles = {
+  position: 'absolute',
+  left: '240px',
+  width: 'calc(100% - 240px)'
+}
 
 const TopPanel = props => (
-  <div>
-    <AppBar position="static">
-      <Toolbar>
+  <AppBar style={styles}>
+    <Toolbar>
+      <Typography variant="title" color="inherit">
         {props.children}
-      </Toolbar>
-    </AppBar>
-  </div>
+      </Typography>
+    </Toolbar>
+  </AppBar>
 )
 
 TopPanel.defaultProps = {

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 
 const styles = {
   container: {
-    display: 'flex'
+    display: 'flex',
+    width: '100%'
   },
   key: {
     flex: 1
@@ -16,17 +17,18 @@ const styles = {
 
 const Text = props => (
   <div style={styles.container}>
-    <ListItemText style={styles.key}>{props.key}</ListItemText>
+    <ListItemText style={styles.key}>{props.label}</ListItemText>
     <ListItemText style={styles.value}>{props.value}</ListItemText>
   </div>
 )
 
 Text.defaultProps = {
-  value: ''
+  label: 'N/A',
+  value: 'N/A'
 }
 
 Text.propTypes = {
-  key: PropTypes.string.isRequired,
+  label: PropTypes.string,
   value: PropTypes.string
 }
 

@@ -11,6 +11,7 @@ import TopPanel from './components/TopPanel'
 import SideMenu from './components/SideMenu'
 import GeneralInfo from './modules/HirezApi/components/GeneralInfo'
 import Signature from './modules/HirezApi/components/Signature'
+import Session from './modules/HirezApi/components/Session'
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -45,6 +46,7 @@ const App = () => (
         <div id="main" style={styles.main}>
           <GeneralInfo />
           <Signature />
+          <Session />
         </div>
       </div>
     </MuiThemeProvider>

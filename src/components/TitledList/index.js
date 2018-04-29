@@ -6,9 +6,15 @@ import Card from 'material-ui/Card'
 import List from 'material-ui/List'
 import Toolbar from 'material-ui/Toolbar'
 
+const styles = {
+  card: {
+    width: 440
+  }
+}
+
 const TitledList = props => (
-  <div className="Card">
-    <Card>
+  <div>
+    <Card style={styles.card}>
       <AppBar position="static">
         <Toolbar>{props.title}</Toolbar>
       </AppBar>

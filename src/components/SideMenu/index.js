@@ -17,11 +17,14 @@ const SideMenu = props => (
     classes={{
       paper: props.classes.drawerPaper
     }}
-  />
+  >
+    {props.children}
+  </Drawer>
 )
 
 SideMenu.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default withStyles(styles)(SideMenu)

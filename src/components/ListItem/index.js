@@ -1,2 +1,3 @@
 export { default as Container } from './Container'
-export { default as Text } from './Text'
+export { default as DoubleText } from './DoubleText'
+export { default as SingleText } from './SingleText'

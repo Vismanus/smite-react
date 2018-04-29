@@ -9,6 +9,7 @@ import reducers from './combinedReducers'
 import theme from './theme'
 import TopPanel from './components/TopPanel'
 import SideMenu from './components/SideMenu'
+import MenuItems from './components/MenuItems'
 import GeneralInfo from './modules/HirezApi/components/GeneralInfo'
 import Signature from './modules/HirezApi/components/Signature'
 import Session from './modules/HirezApi/components/Session'
@@ -42,7 +43,9 @@ const App = () => (
     <MuiThemeProvider theme={theme}>
       <div id="container" style={styles.container}>
         <TopPanel />
-        <SideMenu />
+        <SideMenu>
+          <MenuItems />
+        </SideMenu>
         <div id="main" style={styles.main}>
           <GeneralInfo />
           <Signature />

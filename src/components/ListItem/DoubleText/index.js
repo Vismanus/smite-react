@@ -15,21 +15,21 @@ const styles = {
   }
 }
 
-const Text = props => (
+const DoubleText = props => (
   <div style={styles.container}>
     <ListItemText style={styles.key}>{props.label}</ListItemText>
     <ListItemText style={styles.value}>{props.value}</ListItemText>
   </div>
 )
 
-Text.defaultProps = {
+DoubleText.defaultProps = {
   label: 'N/A',
   value: 'N/A'
 }
 
-Text.propTypes = {
+DoubleText.propTypes = {
   label: PropTypes.string,
   value: PropTypes.string
 }
 
-export default Text
+export default DoubleText

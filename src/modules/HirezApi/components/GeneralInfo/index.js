@@ -9,9 +9,11 @@ import Input from '../../../../components/Input'
 
 import {
   saveDevIdInput,
-  saveMethodInput,
   setDevId,
-  setMethod
+  saveMethodInput,
+  setMethod,
+  saveAuthKeyInput,
+  setAuthKey
 } from '../../actions'
 
 const styles = {
@@ -49,9 +51,11 @@ const GeneralInfo = props => (
     <Container>
       <Input
         label="authKey"
+        onBlur={event => props.saveAuthKeyInput(event.target.value)}
       />
       <RaisedButton
         style={styles.button}
+        onClick={() => props.setAuthKey(props.authKeyInput)}
       >
         save
       </RaisedButton>
@@ -61,25 +65,32 @@ const GeneralInfo = props => (
 
 GeneralInfo.propTypes = {
   devIdInput: PropTypes.string.isRequired,
-  methodInput: PropTypes.string.isRequired,
-  saveDevIdInput: PropTypes.func.isRequired,
-  saveMethodInput: PropTypes.func.isRequired,
   setDevId: PropTypes.func.isRequired,
-  setMethod: PropTypes.func.isRequired
+  saveDevIdInput: PropTypes.func.isRequired,
+  methodInput: PropTypes.string.isRequired,
+  setMethod: PropTypes.func.isRequired,
+  saveMethodInput: PropTypes.func.isRequired,
+  authKeyInput: PropTypes.string.isRequired,
+  setAuthKey: PropTypes.func.isRequired,
+  saveAuthKeyInput: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
   devIdInput: state.hirezApi.devIdInput,
-  methodInput: state.hirezApi.methodInput,
   devId: state.hirezApi.devId,
-  method: state.hirezApi.method
+  methodInput: state.hirezApi.methodInput,
+  method: state.hirezApi.method,
+  authKeyInput: state.hirezApi.authKeyInput,
+  authKey: state.hirezApi.authKey
 })
 
 const mapDispatchToProps = dispatch => ({
-  saveMethodInput: methodInput => dispatch(saveMethodInput(methodInput)),
   saveDevIdInput: devIdInput => dispatch(saveDevIdInput(devIdInput)),
+  setDevId: devId => dispatch(setDevId(devId)),
+  saveMethodInput: methodInput => dispatch(saveMethodInput(methodInput)),
   setMethod: method => dispatch(setMethod(method)),
-  setDevId: devId => dispatch(setDevId(devId))
+  saveAuthKeyInput: authKeyInput => dispatch(saveAuthKeyInput(authKeyInput)),
+  setAuthKey: authKey => dispatch(setAuthKey(authKey))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(GeneralInfo)

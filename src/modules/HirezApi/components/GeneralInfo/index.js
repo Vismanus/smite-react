@@ -29,7 +29,6 @@ const GeneralInfo = props => (
       />
       <RaisedButton
         style={styles.button}
-        color="primary"
         onClick={() => props.setDevId(props.devIdInput)}
       >
         save
@@ -42,8 +41,17 @@ const GeneralInfo = props => (
       />
       <RaisedButton
         style={styles.button}
-        color="primary"
         onClick={() => props.setMethod(props.methodInput)}
+      >
+        save
+      </RaisedButton>
+    </Container>
+    <Container>
+      <Input
+        label="authKey"
+      />
+      <RaisedButton
+        style={styles.button}
       >
         save
       </RaisedButton>

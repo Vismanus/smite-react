@@ -3,15 +3,16 @@ import * as actionTypes from './actionTypes'
 
 const initialState = {
   devIdInput: '',
-  authKeyInput: '',
-  methodInput: '',
   devId: '',
+  authKeyInput: '',
   authKey: '',
+  methodInput: '',
   method: '',
   signature: '',
   timestamp: '',
   session: {
-    session_id: 'no session created'
+    session_id: 'N/A',
+    timestamp: 'N/A'
   }
 }
 

@@ -2,27 +2,27 @@ import React from 'react'
 
 import RaisedButton from '../../../../components/RaisedButton'
 import TitledList from '../../../../components/TitledList'
-import { Container } from '../../../../components/ListItem'
-import Input from '../../../../components/Input'
-
-const styles = {
-  button: {
-    marginLeft: 24
-  }
-}
+import { Container, DoubleText } from '../../../../components/ListItem'
 
 const Signature = () => (
   <TitledList title="Signature">
     <Container>
-      <Input
-        label="authKey"
-      />
-      <RaisedButton
-        style={styles.button}
-        color="primary"
-      >
-        save
-      </RaisedButton>
+      <DoubleText label="Current" />
+    </Container>
+    <Container>
+      <RaisedButton>Create new signature</RaisedButton>
+    </Container>
+    <Container>
+      <DoubleText label="devId" />
+    </Container>
+    <Container>
+      <DoubleText label="method" />
+    </Container>
+    <Container>
+      <DoubleText label="authKey" />
+    </Container>
+    <Container>
+      <DoubleText label="timestamp" />
     </Container>
   </TitledList>
 )

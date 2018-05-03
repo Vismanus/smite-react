@@ -3,8 +3,12 @@ import PropTypes from 'prop-types'
 
 import { ListItem } from 'material-ui/List'
 
+const styles = {
+  justifyContent: 'center'
+}
+
 const Container = props => (
-  <ListItem divider={props.divider}>
+  <ListItem style={styles} divider={props.divider}>
     {props.children}
   </ListItem>
 )

@@ -7,17 +7,24 @@ import { Container, DoubleText } from '../../../../components/ListItem'
 const Session = () => (
   <TitledList title="Session">
     <Container>
-      <DoubleText label="ID" />
+      <DoubleText label="Current" />
     </Container>
     <Container>
-      <DoubleText label="Time left" />
+      <DoubleText label="time left" />
     </Container>
     <Container>
-      <RaisedButton
-        color="primary"
-      >
-        create
+      <RaisedButton>
+        create new session
       </RaisedButton>
+    </Container>
+    <Container>
+      <DoubleText label="devId" />
+    </Container>
+    <Container>
+      <DoubleText label="Signature" />
+    </Container>
+    <Container>
+      <DoubleText label="timestamp" />
     </Container>
   </TitledList>
 )

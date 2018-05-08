@@ -53,7 +53,7 @@ Signature.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  signature: state.hirezApi.signature.current,
+  signature: state.hirezApi.signature.id,
   timestamp: state.hirezApi.signature.timestamp,
   devId: state.hirezApi.signature.devId,
   method: state.hirezApi.signature.method,

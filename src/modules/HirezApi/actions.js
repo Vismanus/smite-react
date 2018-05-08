@@ -10,7 +10,8 @@ export function createSignature(timestamp) {
 export function saveSession(session) {
   return {
     type: actionTypes.SAVE_SESSION,
-    session
+    id: session.session_id,
+    timestamp: session.timestamp
   }
 }
 

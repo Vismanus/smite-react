@@ -9,16 +9,18 @@ const initialState = {
   methodInput: '',
   method: 'n/a',
   signature: {
-    current: 'n/a',
+    id: 'n/a',
     devId: 'n/a',
     method: 'n/a',
     authKey: 'n/a',
     timestamp: 'n/a'
   },
-  timestamp: 'n/a',
   session: {
-    session_id: 'N/A',
-    timestamp: 'N/A'
+    id: 'n/a',
+    timeleft: 'n/a',
+    devId: 'n/a',
+    signatureId: 'n/a',
+    timestamp: 'n/a'
   }
 }
 
@@ -28,7 +30,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         signature: {
-          current: md5(`${state.devId}${state.method}${state.authKey}${action.timestamp}`),
+          id: md5(`${state.devId}${state.method}${state.authKey}${action.timestamp}`),
           devId: state.devId,
           method: state.method,
           authKey: state.authKey,
@@ -39,7 +41,13 @@ export default (state = initialState, action) => {
     case actionTypes.SAVE_SESSION:
       return {
         ...state,
-        session: action.session
+        session: {
+          ...state.session,
+          id: action.id,
+          devId: state.devId,
+          signatureId: state.signature.id,
+          timestamp: action.timestamp
+        }
       }
     case actionTypes.SAVE_METHOD_INPUT:
       return {

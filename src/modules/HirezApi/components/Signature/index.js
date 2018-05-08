@@ -20,16 +20,6 @@ const Signature = props => (
     </Container>
 
     <Container>
-      <RaisedButton
-        onClick={() =>
-          props.createSignature(new Moment().utc().format('YYYYMMDDHHmmss'))
-        }
-      >
-        Create new Signature
-      </RaisedButton>
-    </Container>
-
-    <Container>
       <DoubleText label="devId" value={props.devId} />
     </Container>
 
@@ -41,6 +31,15 @@ const Signature = props => (
       <DoubleText label="authKey" value={props.authKey} />
     </Container>
 
+    <Container>
+      <RaisedButton
+        onClick={() =>
+          props.createSignature(new Moment().utc().format('YYYYMMDDHHmmss'))
+        }
+      >
+        Create new Signature
+      </RaisedButton>
+    </Container>
   </TitledList>
 )
 
@@ -54,11 +53,11 @@ Signature.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  signature: state.hirezApi.signature,
-  timestamp: state.hirezApi.timestamp,
-  devId: state.hirezApi.devId,
-  method: state.hirezApi.method,
-  authKey: state.hirezApi.authKey
+  signature: state.hirezApi.signature.current,
+  timestamp: state.hirezApi.signature.timestamp,
+  devId: state.hirezApi.signature.devId,
+  method: state.hirezApi.signature.method,
+  authKey: state.hirezApi.signature.authKey
 })
 
 const mapDispatchToProps = dispatch => ({

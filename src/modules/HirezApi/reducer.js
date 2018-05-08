@@ -8,7 +8,13 @@ const initialState = {
   authKey: 'n/a',
   methodInput: '',
   method: 'n/a',
-  signature: 'n/a',
+  signature: {
+    current: 'n/a',
+    devId: 'n/a',
+    method: 'n/a',
+    authKey: 'n/a',
+    timestamp: 'n/a'
+  },
   timestamp: 'n/a',
   session: {
     session_id: 'N/A',
@@ -21,7 +27,13 @@ export default (state = initialState, action) => {
     case actionTypes.CREATE_SIGNATURE:
       return {
         ...state,
-        signature: md5(`${state.devId}${state.method}${state.authKey}${action.timestamp}`),
+        signature: {
+          current: md5(`${state.devId}${state.method}${state.authKey}${action.timestamp}`),
+          devId: state.devId,
+          method: state.method,
+          authKey: state.authKey,
+          timestamp: action.timestamp
+        },
         timestamp: action.timestamp
       }
     case actionTypes.SAVE_SESSION:

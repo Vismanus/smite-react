@@ -27,11 +27,12 @@ const GeneralInfo = props => (
     <Container>
       <Input
         label="devId"
-        onBlur={event => props.saveDevIdInput(event.target.value)}
+        onChange={event => props.saveDevIdInput(event.target.value)}
       />
       <RaisedButton
         style={styles.button}
         onClick={() => props.setDevId(props.devIdInput)}
+        disabled={props.devId === props.devIdInput}
       >
         save
       </RaisedButton>
@@ -39,11 +40,12 @@ const GeneralInfo = props => (
     <Container>
       <Input
         label="method"
-        onBlur={event => props.saveMethodInput(event.target.value)}
+        onChange={event => props.saveMethodInput(event.target.value)}
       />
       <RaisedButton
         style={styles.button}
         onClick={() => props.setMethod(props.methodInput)}
+        disabled={props.method === props.methodInput}
       >
         save
       </RaisedButton>
@@ -51,11 +53,12 @@ const GeneralInfo = props => (
     <Container>
       <Input
         label="authKey"
-        onBlur={event => props.saveAuthKeyInput(event.target.value)}
+        onChange={event => props.saveAuthKeyInput(event.target.value)}
       />
       <RaisedButton
         style={styles.button}
         onClick={() => props.setAuthKey(props.authKeyInput)}
+        disabled={props.authKey === props.authKeyInput}
       >
         save
       </RaisedButton>
@@ -64,13 +67,16 @@ const GeneralInfo = props => (
 )
 
 GeneralInfo.propTypes = {
+  devId: PropTypes.string.isRequired,
   devIdInput: PropTypes.string.isRequired,
   setDevId: PropTypes.func.isRequired,
   saveDevIdInput: PropTypes.func.isRequired,
+  method: PropTypes.string.isRequired,
   methodInput: PropTypes.string.isRequired,
   setMethod: PropTypes.func.isRequired,
   saveMethodInput: PropTypes.func.isRequired,
   authKeyInput: PropTypes.string.isRequired,
+  authKey: PropTypes.string.isRequired,
   setAuthKey: PropTypes.func.isRequired,
   saveAuthKeyInput: PropTypes.func.isRequired
 }

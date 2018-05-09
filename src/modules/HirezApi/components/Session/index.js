@@ -21,19 +21,13 @@ const Session = (props) => {
   return (
     <TitledList title="Session">
       <Container>
-        <DoubleText label="sessionId" value={props.sessionId} />
+        <DoubleText label="Id" value={props.sessionId} />
       </Container>
       <Container>
-        <DoubleText label="time left" value={props.timeleft} />
+        <DoubleText label="Timestamp" value={props.timestamp} />
       </Container>
       <Container>
-        <DoubleText label="devId" value={props.sessionDevId} />
-      </Container>
-      <Container>
-        <DoubleText label="signatureId" value={props.sessionSigId} />
-      </Container>
-      <Container>
-        <DoubleText label="timestamp" value={props.timestamp} />
+        <DoubleText label="Time left" value={props.timeleft} />
       </Container>
       <Container>
         <RaisedButton onClick={() => fetchSession()}>
@@ -50,8 +44,6 @@ Session.propTypes = {
   devId: PropTypes.string.isRequired,
   signatureTimestamp: PropTypes.string.isRequired,
   signatureId: PropTypes.string.isRequired,
-  sessionSigId: PropTypes.string.isRequired,
-  sessionDevId: PropTypes.string.isRequired,
   timestamp: PropTypes.string.isRequired,
   method: PropTypes.string.isRequired,
   saveSession: PropTypes.func.isRequired
@@ -63,8 +55,6 @@ const mapStateToProps = state => ({
   devId: state.hirezApi.devId,
   signatureTimestamp: state.hirezApi.signature.timestamp,
   signatureId: state.hirezApi.signature.id,
-  sessionSigId: state.hirezApi.session.signatureId,
-  sessionDevId: state.hirezApi.session.devId,
   timestamp: state.hirezApi.session.timestamp,
   method: state.hirezApi.signature.method
 })

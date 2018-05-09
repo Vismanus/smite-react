@@ -8,21 +8,18 @@ import Toolbar from 'material-ui/Toolbar'
 
 const styles = {
   card: {
-    width: 440
+    width: 440,
+    height: 'fit-content'
   }
 }
 
 const TitledList = props => (
-  <div>
-    <Card style={styles.card}>
-      <AppBar position="static">
-        <Toolbar>{props.title}</Toolbar>
-      </AppBar>
-      <List disablePadding>
-        {props.children}
-      </List>
-    </Card>
-  </div>
+  <Card style={styles.card}>
+    <AppBar position="static">
+      <Toolbar>{props.title}</Toolbar>
+    </AppBar>
+    <List disablePadding>{props.children}</List>
+  </Card>
 )
 
 TitledList.propTypes = {

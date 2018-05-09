@@ -13,6 +13,7 @@ import MenuItems from './components/MenuItems'
 import GeneralInfo from './modules/HirezApi/components/GeneralInfo'
 import Signature from './modules/HirezApi/components/Signature'
 import Session from './modules/HirezApi/components/Session'
+import Player from './modules/HirezApi/components/Player'
 
 /* eslint-disable no-underscore-dangle */
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -32,9 +33,13 @@ const styles = {
     left: 240,
     top: 64,
     margin: 24,
-    width: 'calc(100% - 288px)',
+    width: 'calc(100% - 288px)'
+  },
+  content: {
     display: 'flex',
-    justifyContent: 'space-around'
+    width: '100%',
+    justifyContent: 'space-between',
+    marginBottom: '24px'
   }
 }
 
@@ -47,9 +52,14 @@ const App = () => (
           <MenuItems />
         </SideMenu>
         <div id="main" style={styles.main}>
-          <GeneralInfo />
-          <Signature />
-          <Session />
+          <div id="content" style={styles.content}>
+            <GeneralInfo />
+            <Signature />
+            <Session />
+          </div>
+          <div id="content" style={styles.content}>
+            <Player />
+          </div>
         </div>
       </div>
     </MuiThemeProvider>

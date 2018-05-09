@@ -12,23 +12,15 @@ import { createSignature } from '../../actions'
 const Signature = props => (
   <TitledList title="Signature">
     <Container>
-      <DoubleText label="Current" value={props.signature} />
+      <DoubleText label="Id" value={props.id} />
     </Container>
 
     <Container>
-      <DoubleText label="timestamp" value={props.timestamp} />
+      <DoubleText label="Timestamp" value={props.timestamp} />
     </Container>
 
     <Container>
-      <DoubleText label="devId" value={props.devId} />
-    </Container>
-
-    <Container>
-      <DoubleText label="method" value={props.method} />
-    </Container>
-
-    <Container>
-      <DoubleText label="authKey" value={props.authKey} />
+      <DoubleText label="Method" value={props.method} />
     </Container>
 
     <Container>
@@ -44,20 +36,16 @@ const Signature = props => (
 )
 
 Signature.propTypes = {
-  signature: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   timestamp: PropTypes.string.isRequired,
   createSignature: PropTypes.func.isRequired,
-  devId: PropTypes.string.isRequired,
-  method: PropTypes.string.isRequired,
-  authKey: PropTypes.string.isRequired
+  method: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
-  signature: state.hirezApi.signature.id,
+  id: state.hirezApi.signature.id,
   timestamp: state.hirezApi.signature.timestamp,
-  devId: state.hirezApi.signature.devId,
-  method: state.hirezApi.signature.method,
-  authKey: state.hirezApi.signature.authKey
+  method: state.hirezApi.signature.method
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -6,7 +6,7 @@ import Drawer from 'material-ui/Drawer'
 
 const styles = () => ({
   drawerPaper: {
-    position: 'relative',
+    position: 'absolute',
     width: 240
   }
 })

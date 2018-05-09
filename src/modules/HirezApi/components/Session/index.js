@@ -13,10 +13,7 @@ const Session = (props) => {
     fetch(`http://api.smitegame.com/smiteapi.svc/${props.method}json/${
       props.devId}/${props.signatureId}/${props.signatureTimestamp}`)
       .then(response => response.json())
-      .then((json) => {
-        console.log(json)
-        props.saveSession(json)
-      })
+      .then(json => props.saveSession(json))
       .catch((ex) => {
         console.log('parsing failed', ex)
       })
